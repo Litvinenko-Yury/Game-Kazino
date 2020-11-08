@@ -1,0 +1,59 @@
+{
+  "name": "kazino-game",
+  "author": {
+    "name": "Litvinenko Yuriy",
+    "email": "litvinenko-don@ukr.net",
+    "url": "https://litvinenko-yury.github.io/Personal-Page/"
+  },
+  "version": "1.0.0",
+  "private": true,
+  "description": "По мотивам игры KAZINO для БК-0010",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "autoprefixer": "^10.0.x",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
+    "gh-pages": "^3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-posthtml": "^3.0.5",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-webp": "^4.0.1",
+    "postcss": "^8.1.2",
+    "posthtml-include": "^1.5.0",
+    "stylelint": "^13.7.2",
+    "webpack-stream": "^6.1.0"
+  },
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
+    "test": "npm run editorconfig && npm run stylelint",
+    "build": "gulp build",
+    "start": "gulp start",
+    "deploy": "gh-pages -d build"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/sass/**/*.{sass,scss}"
+  ],
+  "engines": {
+    "node": "^12.19.0"
+  }
+}
