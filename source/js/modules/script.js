@@ -61,7 +61,7 @@ function kazino() {
     inputHelpText.classList.remove('field-text__help-text--error');
   });
 
-
+  /*ИГРОК нажал "сделать ставку"*/
   btnEnterRate.addEventListener('click', () => {
     console.log('Игрок нажал ~сделать ставку~  =================');
 
@@ -211,14 +211,12 @@ function kazino() {
 
     deckСards.splice(rnd, 1); // // начиная с позиции rnd, удалить 1 элемент
     console.log('теперь длина массива = ' + deckСards.length);
-
-
     console.log('=== END функ getRandomCard()===');
 
     return rndCardValue;
   }
 
-  /*функция запускает выдачу карты из колоды и считает очки игрока*/
+  /*функция запускает выдачу карты из колоды и считает очки ИГРОКА*/
   function updScorePlayer() {
     console.log('=== START функ updScorePlayer()===');
     console.log('Игрок играет со ставкой rate = ' + rate);
@@ -234,15 +232,11 @@ function kazino() {
     document.querySelector('#textScorePlayer').style.opacity = '1';
 
     arr.splice(0, 1); // когда играет игрок, удаляем запись о выпавшей карте из массива
-    /*удаляем содержмое массива выпавших карт, т.к. для игрока это не нужно*/
-    // for (let i = 0; i <= arr.length; i++) {
-    //   arr.splice(0, 1);
-    // }
 
     console.log('=== END функ updScorePlayer()===');
   }
 
-  /*функция запускает выдачу карты из колоды и считает очки игрока*/
+  /*функция запускает выдачу карты из колоды и считает очки ПК*/
   function updScorePC() {
     console.log('=== START функ updScorePC()===');
 
@@ -262,15 +256,15 @@ function kazino() {
   }
 
   /*===================*/
-  /*игрок нажал "ещё карту?"*/
+  /*ИГРОК нажал "ещё карту?"*/
   btnMore.addEventListener('click', () => {
     console.log('Игрок нажал ~ещё карту~  =================');
 
     updScorePlayer();
 
-    /*действия, если случился "перебор"*/
+    /*действия, если случился "перебор" у ИГРОКА*/
     if (scorePlayer >= 22) {
-      console.log('ПЕРЕБОР!');
+      console.log('ПЕРЕБОР у ИГРОКА!');
       console.log('rate = ' + rate);
       console.log('запускаю updMoney()');
 
@@ -292,47 +286,37 @@ function kazino() {
     }
   });
 
-  /*игрок нажал "хватит"*/
+  /*ИГРОК нажал "хватит"*/
   btnNo.addEventListener('click', () => {
     console.log('Игрок нажал ~хватит~ =============');
     console.log('теперь играет ПК =============');
 
     gamePC.style.display = 'block';
-    //PC должен выдаать себе карты, пока не остановится, или не случится "перебор!"
+    //ПК должен выдаать себе карты, пока не остановится, или не случится "перебор!"
 
-    while (scorePC <= 17) {
+    while (scorePC <= 16) {
       updScorePC();
     }
 
 
+    /*действия, если случился "перебор" у ПК*/
+    if (scorePC >= 22) {
+      console.log('ПЕРЕБОР у ПК!');
+      console.log('rate = ' + rate);
+      console.log('запускаю updMoney()');
+
+      updMoney(-rate, +rate); //  снять ставку из банка и добавить ставку на счет ИГРОКА
+
+      /* добавить на страницу текст "ПЕРЕБОР!"*/
+      const excess = document.createElement('p');
+      excess.classList.add('excess');
+      excess.innerHTML = 'ПЕРЕБОР!';
+      document.querySelector('#textScorePC').append(excess);
 
 
 
-    // let n = 0;
-    // console.log('принимаю в цикл scorePC = ' + scorePC);
-    // while (scorePC <= 17) {
-    //   console.log('===зашел в цикл,  scorePC = ' + scorePC);
-    //   let timerId = setTimeout(updScorePC, n);
-    //   n += 1000;
-    //   console.log('вызвал в цикле updScorePC(),  scorePC = ' + scorePC);
-    //   console.log('n = ' + n);
-
-
-    //   if (n > 5000) { break };
-    // }
-
-    // function sayHello() {
-    //   console.log('Hello');
-    // }
-
-    // let n = 1000;
-    // for (let i = 0; i < 5; i++) {
-    //   setTimeout(sayHello, n);
-    //   n+=1000;
-    // }
-
-
-
+      scorePC = 0; //обнулить очки игрока
+    }
 
     if (scorePlayer >= scorePC) {
       console.log('выиграл игрок');
