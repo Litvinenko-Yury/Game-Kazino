@@ -29,8 +29,8 @@ gulp.task("copyFolderBuild", function () {
     "!source/img/*.psd", // .psd не копировать
     "!source/img/rastr/Background-*.jpg", //Background-*.jpg не копировать
     "!source/img/rastr/background-*.jpg", //background-*.jpg не копировать
-    "source/js/ofi.min.js",
-    "source/js/picturefill.min.js",
+    //"source/js/ofi.min.js",
+    //"source/js/picturefill.min.js",
     "!source/js/README"
   ], {
     base: "source"

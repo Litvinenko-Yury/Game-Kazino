@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Startkit</title>
+  <title>Kazino</title>
   <meta name="author" content="Yury Litvinenko">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="preload" href="fonts/opensans.woff2" as="font">
@@ -12,13 +12,9 @@
   <link rel="stylesheet" href="css/style.min.css">
 
   <!-- classic-favicon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png"> -->
 
-  <!-- <script>
-    document.createElement("picture");
-  </script>
-  <script src="js/picturefill.min.js" async></script> -->
 </head>
 
 <body>
@@ -26,25 +22,78 @@
     <include src="build/img/vector/svg_sprite.svg"></include>
   </div> -->
 
-  <header class="page-header">
+  <!-- <header class="page-header">
     <div class="page-header__wrap">
     </div>
-  </header>
+  </header> -->
 
   <main class="page-main">
+
+    <section class="start">
+      <section class='info'>
+        <span class='info__text'>В банке:</span>
+        <span class='info__value' id='infoValueBank'></span>
+      </section>
+
+      <section class='info'>
+        <span class='info__text'>На вашем счете:</span>
+        <span class='info__value' id='infoValuePlayer'></span>
+      </section>
+
+      <section class="wrap-rate">
+        <label class="field-text">
+          <span class="field-text__name">Ваша ставка:</span>
+          <span class="field-text__input-wrap">
+            <input class="field-text__input" type="text" name="text" placeholder='Cтавка?' id='inputEnterRate'>
+            <span class="field-text__help-text" id='inputHelpText'>Смелее!</span>
+          </span>
+        </label>
+        <button class="btn" type="submit" id='btnEnterRate'>Сделать ставку</button>
+      </section>
+
+      <section class="show-cards" id='showCards'></section>
+    </section>
+
+    <section class="game" id='gamePlayer'>
+      <div class="distribution" id='distributionPlayer'>
+        <p>Сдаю карты Вам</p>
+      </div>
+
+      <div class="score" id='textScorePlayer'>
+        <span>У Вас </span>
+        <span id='totalScorePlayer'></span>
+        <span> очков</span>
+      </div>
+
+      <div class="wrap-btn">
+        <button class='btn btn-continue' id='btnContinue'>продолжить игру?</button>
+        <button class='btn btn-end' id='btnEndGame'>нет</button>
+        <button class='btn btn-more' id='btnMore'>еще карту!</button>
+        <button class='btn btn-no' id='btnNo'>хватит...</button>
+      </div>
+    </section>
+
+    <section class="game" id='gamePC'>
+      <div class="distribution" id='distributionPC'>
+        <p>Сдаю карты себе</p>
+      </div>
+
+      <div class="score" id='textScorePC'>
+        <span>У меня </span>
+        <span id='totalScorePC'></span>
+        <span> очков</span>
+      </div>
+    </section>
   </main>
 
-  <footer class="page-footer">
+  <!-- <footer class="page-footer">
     <div class="page-footer__wrap">
     </div>
-  </footer>
+  </footer> -->
 
-  <!-- object-fit for IE -->
-  <script src="js/ofi.min.js"></script>
-  <script>objectFitImages();</script>
   <!-- ============ -->
 
-  <!-- <script src="js/script.min.js" async></script> -->
+  <script src="js/bundle.js"></script>
 </body>
 
 </html>

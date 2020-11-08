@@ -1,6 +1,8 @@
-import glitch from './modules/glitch';
+import kazino from './modules/script';
+//import glitch from './modules/glitch';
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  glitch();
+  kazino();
+  //glitch();
 });
