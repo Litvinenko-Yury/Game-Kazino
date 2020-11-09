@@ -1,21 +1,5 @@
 function kazino() {
 
-  // const mass = [
-  //   { name: 'туз', value: 11 },
-  //   { name: 'король', value: 4 }
-  // ];
-
-  const mass = ['туз', 'король'];
-
-  const mass2 = mass.slice();
-  console.log('mass2 = ' + mass2);
-
-
-
-
-
-  /*==========*/
-
   const inputEnterRate = document.querySelector('#inputEnterRate'),
     btnEnterRate = document.querySelector('#btnEnterRate'),
     showCards = document.querySelector('#showCards'),
@@ -129,8 +113,8 @@ function kazino() {
   /*обновить колоду*/
   let deckСards;
   function newDeckCards() {
-    deckСards = 0;
-    deckСards = deckСardsBasic;
+    deckСards = JSON.parse(JSON.stringify(deckСardsBasic)); // copyObj будет хранить копию mainObj
+    //return deckСards;
   }
   //newDeckCards(); // ЭТО УБРАТЬ ПОСЛЕ ОТЛАДКИ
   //console.log(deckСards);
@@ -347,7 +331,7 @@ function kazino() {
       console.log(`Вы выиграли ${rate}`);
 
       const gameResultText = document.createElement('p');
-      gameResultText.classList.add('game-result');
+      gameResultText.classList.add('game-result__content');
       gameResultText.innerHTML = `Вы выиграли ${rate}`;
       gameResult.append(gameResultText);
       updMoney(-rate, +rate);
@@ -356,7 +340,7 @@ function kazino() {
       console.log(`Вы проиграли ${rate}`);
 
       const gameResultText = document.createElement('p');
-      gameResultText.classList.add('game-result');
+      gameResultText.classList.add('game-result__content');
       gameResultText.innerHTML = `Вы проиграли ${rate}`;
       gameResult.append(gameResultText);
       updMoney(rate, -rate);
@@ -411,6 +395,10 @@ function kazino() {
     distCard.forEach((item) => {
       item.remove();
     });
+
+    // удалить информационное сообщение
+    document.querySelector('.game-result__content').remove();
+
 
     /* удалить блоки игры ИГРОКА и ПК*/
     gamePlayer.style.display = 'none';
