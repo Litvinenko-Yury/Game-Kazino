@@ -22,16 +22,11 @@
     <include src="build/img/vector/svg_sprite.svg"></include>
   </div> -->
 
-  <!-- <header class="page-header">
-    <div class="page-header__wrap">
-    </div>
-  </header> -->
-
   <main class="page-main">
 
     <section class="start">
       <section class='info'>
-        <span class='info__text'>В банке:</span>
+        <span class='info__text'>Ставлю в банк:</span>
         <span class='info__value' id='infoValueBank'></span>
       </section>
 
@@ -65,11 +60,11 @@
         <span> очков</span>
       </div>
 
-      <div class="wrap-btn">
-        <button class='btn btn-continue' id='btnContinue'>продолжить игру?</button>
-        <button class='btn btn-end' id='btnEndGame'>нет</button>
+      <div class="wrap-btn" id='wrapBtn'>
         <button class='btn btn-more' id='btnMore'>еще карту!</button>
         <button class='btn btn-no' id='btnNo'>хватит...</button>
+        <button class='btn btn-continue' id='btnContinue'>продолжить игру</button>
+        <button class='btn btn-end' id='btnEndGame'>нет</button>
       </div>
     </section>
 
@@ -83,13 +78,23 @@
         <span id='totalScorePC'></span>
         <span> очков</span>
       </div>
-    </section>
-  </main>
 
-  <!-- <footer class="page-footer">
-    <div class="page-footer__wrap">
-    </div>
-  </footer> -->
+      <div class="game-result" id='gameResult'>
+      </div>
+
+      <div class="wrap-btn-2">
+        <button class='btn btn-continue' id='btnContinue2'>продолжим игру?</button>
+        <button class='btn btn-end' id='btnEndGame2'>нет</button>
+      </div>
+    </section>
+
+
+    <section class=modal id='modal'>
+      <p class="modal__content">ЗАХОДИТЕ ЕЩЕ!</p>
+    </section>
+
+
+  </main>
 
   <!-- ============ -->
 
