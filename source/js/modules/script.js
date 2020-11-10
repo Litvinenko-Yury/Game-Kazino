@@ -19,7 +19,7 @@ function kazino() {
     modal = document.querySelector('#modal');
 
   /*колода 36 карт*/
-  /* const deckСards = [
+  const deckСardsBasic = [
     { name: 'туз', color: 'черный', suit: 'черва', value: 11 },
     { name: 'туз', color: 'красный', suit: 'бубна', value: 11 },
     { name: 'туз', color: 'черный', suit: 'пика', value: 11 },
@@ -64,23 +64,7 @@ function kazino() {
     { name: 'десятка', color: 'красный', suit: 'бубна', value: 10 },
     { name: 'десятка', color: 'черный', suit: 'пика', value: 10 },
     { name: 'десятка', color: 'красный', suit: 'треф', value: 10 },
-  ]; */
-
-  /*колода 11 карт*/
-  const deckСardsBasic = [
-    { name: 'нулевка', color: 'черный', suit: 'черва', value: 0 },
-    { name: 'единица', color: 'черный', suit: 'черва', value: 1 },
-    { name: 'двойка', color: 'черный', suit: 'черва', value: 2 },
-    { name: 'тройка', color: 'черный', suit: 'черва', value: 3 },
-    { name: 'четверка', color: 'черный', suit: 'черва', value: 4 },
-    { name: 'пятерка', color: 'черный', suit: 'черва', value: 5 },
-    { name: 'шестерка', color: 'черный', suit: 'черва', value: 6 },
-    { name: 'семерка', color: 'черный', suit: 'черва', value: 7 },
-    { name: 'восьмерка', color: 'черный', suit: 'черва', value: 8 },
-    { name: 'девятка', color: 'черный', suit: 'черва', value: 9 },
-    { name: 'десятка', color: 'черный', suit: 'черва', value: 10 }
   ];
-
 
   let rate,
     scorePlayer,
@@ -114,12 +98,7 @@ function kazino() {
   let deckСards;
   function newDeckCards() {
     deckСards = JSON.parse(JSON.stringify(deckСardsBasic)); // copyObj будет хранить копию mainObj
-    //return deckСards;
   }
-  //newDeckCards(); // ЭТО УБРАТЬ ПОСЛЕ ОТЛАДКИ
-  //console.log(deckСards);
-  //console.log('начальная длина массива = ' + deckСards.length); //начальный массив
-
 
   /*===================*/
   /*===принимаю ставку от игрока===*/
@@ -138,7 +117,7 @@ function kazino() {
 
     rate = document.querySelector('#inputEnterRate').value;
 
-    const reg = /\D/ig; // паттер регулярного выражения; ищем не-цифры
+    const reg = /\D/ig; // паттер регулярного выражения; ищем НЕ-цифры
     if (reg.test(rate)) {
       //console.log('буквы найдены, ERROR!');
       inputHelpText.innerHTML = 'Похоже, вы перебрали алкоголя... Сконцентрируйтесь  -))';
@@ -149,13 +128,18 @@ function kazino() {
       inputHelpText.innerHTML = 'Сделайте ставку...';
       inputHelpText.classList.add('field-text__help-text--error');
     }
-    else if (rate > 0 && rate < 100) {
+    else if (rate > moneyPlayer) {
       //console.log('проверка ставки, 2-й if, input(rate) = ' + rate);
+      inputHelpText.innerHTML = 'У Вас нет столько денег!';
+      inputHelpText.classList.add('field-text__help-text--error');
+    }
+    else if (rate > 0 && rate < 100) {
+      //console.log('проверка ставки, 3-й if, input(rate) = ' + rate);
       inputHelpText.innerHTML = 'С такой ставкой играют в подворотне, а не  нас!';
       inputHelpText.classList.add('field-text__help-text--error');
     }
     else if (rate >= 100 && rate < 1000) {
-      //console.log('проверка ставки, 3-й if, input(rate) = ' + rate);
+      //console.log('проверка ставки, 4-й if, input(rate) = ' + rate);
       inputHelpText.innerHTML = 'В следующий раз будьте решительнее!';
       inputHelpText.classList.remove('field-text__help-text--error');
       rate = +rate; //преобазование строки в число
