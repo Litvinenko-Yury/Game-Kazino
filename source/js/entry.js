@@ -1,8 +1,7 @@
 import kazino from './modules/script';
-//import glitch from './modules/glitch';
-
+//import modal2 from './modules/modal2';
 
 window.addEventListener('DOMContentLoaded', () => {
   kazino();
-  //glitch();
+  //modal2();
 });

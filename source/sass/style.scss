@@ -2,14 +2,9 @@
 @import "variables.scss";
 //===
 @import "blocks/global.scss";
-//@import "blocks/mixins.scss";
 //===
 // импорт остальных блоков
-//@import "blocks/btn.scss";
-//@import "blocks/logo.scss";
-//@import "blocks/main-nav.scss";
-//@import "blocks/page-footer.scss";
-//@import "blocks/page-header.scss";
-@import "blocks/page-main.scss";
 @import "blocks/css.scss";
+@import "blocks/btn.scss";
 @import "blocks/modal.scss";
+@import "blocks/modal2.scss";

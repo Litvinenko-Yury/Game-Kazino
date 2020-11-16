@@ -1,0 +1,23 @@
+.modal2 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  //display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  animation: modal__fade 0.2s;
+
+  &--show {
+    display: block;
+  }
+}
+
+.modal2__text {
+  font-size: 24px;
+  color: #d4d5d6;
+}

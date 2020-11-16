@@ -1,0 +1,12 @@
+.btn {
+  &--disabled,
+  &:disabled {
+    //opacity: $opacity;
+    opacity: 0.5;
+    cursor: not-allowed;
+    //pointer-events: none;
+    color: gray;
+    background-color: #333333;
+    //border-color: red;
+  }
+}

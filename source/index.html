@@ -18,83 +18,126 @@
 </head>
 
 <body>
-  <!--  <div style="display: none;">
-    <include src="build/img/vector/svg_sprite.svg"></include>
-  </div> -->
 
-  <main class="page-main">
 
-    <section class="start">
-      <section class='info'>
-        <span class='info__text'>Ставлю в банк:</span>
-        <span class='info__value' id='infoValueBank'></span>
-      </section>
-
-      <section class='info'>
-        <span class='info__text'>На вашем счете:</span>
-        <span class='info__value' id='infoValuePlayer'></span>
-      </section>
-
-      <section class="wrap-rate">
-        <label class="field-text">
-          <span class="field-text__name">Ваша ставка:</span>
-          <span class="field-text__input-wrap">
-            <input class="field-text__input" type="text" name="text" placeholder='Cтавка?' id='inputEnterRate'>
-            <span class="field-text__help-text" id='inputHelpText'>Смелее!</span>
-          </span>
-        </label>
-        <button class="btn" type="submit" id='btnEnterRate'>Сделать ставку</button>
-      </section>
-
-      <section class="show-cards" id='showCards'>
-        <p class="show-cards__text">Здесь будут показаны карты из колоды</p>
-      </section>
+  <section class="start">
+    <section class='info'>
+      <span class='info__text'>Ставлю в банк:</span>
+      <span class='info__value' id='infoValueBank'></span>
     </section>
 
-    <section class="game" id='gamePlayer'>
-      <div class="distribution" id='distributionPlayer'>
-        <p>Сдаю карты Вам</p>
-      </div>
-
-      <div class="score" id='textScorePlayer'>
-        <span>У Вас </span>
-        <span id='totalScorePlayer'></span>
-        <span> очков</span>
-      </div>
-
-      <div class="wrap-btn" id='wrapBtn'>
-        <button class='btn btn-more' id='btnMore'>еще карту!</button>
-        <button class='btn btn-no' id='btnNo'>хватит...</button>
-        <button class='btn btn-continue' id='btnContinue'>продолжить игру</button>
-        <button class='btn btn-end' id='btnEndGame'>нет</button>
-      </div>
+    <section class='info'>
+      <span class='info__text'>На вашем счете:</span>
+      <span class='info__value' id='infoValuePlayer'></span>
     </section>
 
-    <section class="game" id='gamePC'>
-      <div class="distribution" id='distributionPC'>
-        <p>Сдаю карты себе</p>
-      </div>
-
-      <div class="score" id='textScorePC'>
-        <span>У меня </span>
-        <span id='totalScorePC'></span>
-        <span> очков</span>
-      </div>
-
-      <div class="game-result" id='gameResult'>
-      </div>
-
-      <div class="wrap-btn-2">
-        <button class='btn btn-continue' id='btnContinue2'>продолжим игру?</button>
-        <button class='btn btn-end' id='btnEndGame2'>нет</button>
-      </div>
+    <section class="wrap-rate">
+      <label class="field-text">
+        <span class="field-text__name">Ваша ставка:</span>
+        <span class="field-text__input-wrap">
+          <input class="field-text__input" type="text" name="text" placeholder='Cтавка?' id='inputEnterRate' autocomplete="off">
+          <span class="field-text__help-text" id='inputHelpText'>Смелее!</span>
+        </span>
+      </label>
+      <button class="btn" type="submit" id='btnEnterRate'>Сделать ставку</button>
     </section>
 
-
-    <section class='modal' id='modal'>
-      <p class="modal__content">ЗАХОДИТЕ ЕЩЕ!</p>
+    <section class="show-cards" id='showCards'>
+      <p class="show-cards__text">Здесь будут показаны карты из колоды</p>
     </section>
-  </main>
+  </section>
+
+  <section class="game" id='gamePlayer'>
+    <div class="distribution" id='distributionPlayer'>
+      <p>Сдаю карты Вам</p>
+    </div>
+
+    <div class="score" id='textScorePlayer'>
+      <span>У Вас </span>
+      <span id='totalScorePlayer'></span>
+      <span> очков</span>
+    </div>
+
+    <div class="wrap-btn" id='wrapBtn'>
+      <button class='btn btn-more' id='btnMore'>еще карту!</button>
+      <button class='btn btn-no' id='btnEnough'>хватит...</button>
+      <button class='btn btn-continue' id='btnContinue'>продолжить игру-1</button>
+      <button class='btn btn-end' id='btnEndGame'>нет-1</button>
+    </div>
+  </section>
+
+  <section class="game" id='gamePC'>
+    <div class="distribution" id='distributionPC'>
+      <p>Сдаю карты себе</p>
+    </div>
+
+    <div class="score" id='textScorePC'>
+      <span>У меня </span>
+      <span id='totalScorePC'></span>
+      <span> очков</span>
+    </div>
+
+    <div class="game-result" id='gameResult'>
+    </div>
+
+    <div class="wrap-btn-2">
+      <button class='btn btn-continue' id='btnContinue2'>продолжим игру-2</button>
+      <button class='btn btn-end' id='btnEndGame2'>нет-2</button>
+    </div>
+  </section>
+
+
+  <section class='modal' id='modal'>
+    <p class="modal__content">ЗАХОДИТЕ ЕЩЕ!</p>
+  </section>
+
+  <section class='modal2' id='modal2'>
+    <p class="modal2__text">В казино нагрянула <span class="modal2__text-inversion">ПОЛИЦИЯ !</span></p>
+    <p class="modal2__text">На вас поступил донос!</p>
+    <p class="modal2__text">Вы обвиняетесь в продаже наркотиков.</p>
+    <p class="modal2__text">Дадите шерифу взятку?</p>
+    <div class="wrap-btn-3">
+      <button class='btn' id='modal2BtnYes1'>Да</button>
+      <button class='btn' id='modal2BtnNo1'>Нет</button>
+    </div>
+    <!-- Блок - Взятка шерифу - ДА -->
+    <div id="wrapBribeYes">
+      <label class="field-text">
+        <span class="field-text__name">Сколько?</span>
+        <span class="field-text__input-wrap">
+          <input class="field-text__input" type="text" name="text" placeholder='Сумма взятки' id='inputEnterBribe' autocomplete="off">
+        </span>
+      </label>
+      <button class="btn" type="submit" id='modal2BtnBribe'>Дать взятку шерифу</button>
+
+      <p class="modal2__text" id="modal2TextOk">Шериф доволен.</p>
+      <p class="modal2__text" id="modal2TextNo">Шериф остался не доволен, это опасно!</p>
+      <button class='btn  modal2BtnСontinue' id='modal2BtnСontinue'>Продолжить</button>
+    </div>
+    <!-- =========================== -->
+    <!-- Блок - Взятка шерифу НЕТ -->
+    <div id="wrapBribeNo">
+      <p class="modal2__text">Подадите жалобу в суд?</p>
+      <div class="wrap-btn-4">
+        <button class='btn' id='modal2BtnYes2'>Да</button>
+        <button class='btn' id='modal2BtnNo2'>Нет</button>
+      </div>
+    </div>
+    <!-- =========================== -->
+    <!-- Блок Жалоба в суд  -ДА -->
+    <div id="notGuilty">
+      <p class="modal2__text">Суд присяжных Вас оправдал.</p>
+      <p class="modal2__text">Вам выплачивается компенсация <span class="modal2__text-summ1" id='compensation'></span> долларов</p>
+      <button class='btn  modal2BtnСontinue' id='modal2bBtnContinue'>Продолжить</button>
+    </div>
+
+    <div id="guilty">
+      <p class="modal2__text">Суд присяжных признал Вас виновным.</p>
+      <p class="modal2__text">Штраф полиции = <span class="modal2__text-summ2" id='payFine'></span> долларов</p>
+      <p class="modal2__text">Судебные издержки = <span class="modal2__text-summ3" id='courtCosts'></span> долларов</p>
+      <button class='btn  modal2BtnСontinue' id='modal2bBtnContinue'>Продолжить</button>
+    </div>
+  </section>
 
   <!-- ============ -->
 
