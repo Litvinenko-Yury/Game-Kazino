@@ -1,5 +1,4 @@
 function kazino() {
-
   const inputEnterRate = document.querySelector('#inputEnterRate'),
     btnEnterRate = document.querySelector('#btnEnterRate'),
     showCards = document.querySelector('#showCards'),
@@ -16,7 +15,9 @@ function kazino() {
     infoValueBank = document.querySelector('#infoValueBank'),
     infoValuePlayer = document.querySelector('#infoValuePlayer'),
     inputHelpText = document.querySelector('#inputHelpText'),
-    modal = document.querySelector('#modal');
+    modal = document.querySelector('#modal'),
+    modalContent = document.querySelector('#modalContent');
+
 
   /*колода 36 карт*/
   const deckСardsBasic = [
@@ -67,32 +68,29 @@ function kazino() {
   ];
 
   let rate,
-    scorePlayer,
-    scorePC,
-    moneyBank,
-    moneyPlayer;
-
-  /*задаём начальные значениия счетчиков*/
-  function initialValues(a, b, c, d, e) {
-    rate = a,
-      scorePlayer = b,
-      scorePC = c,
-      moneyBank = d / 2,
-      moneyPlayer = e / 2;
-  }
-  initialValues(0, 0, 0, 28500, 25000);
-
+    scorePlayer = 0,
+    scorePC = 0,
+    moneyBank = 0,
+    moneyPlayer = 0;
+  console.log('деньги игрока, начало = ' + moneyPlayer);
 
   function updMoney(bank, player) {
-    moneyBank += bank;
-    moneyPlayer += player;
-    //console.log('В банке: ' + moneyBank + 'долл');
-    //console.log('у игрока: ' + moneyPlayer + 'долл');
+    console.log('updMoney() начало, принял bank = ' + bank);
+    console.log('updMoney() начало, принял player = ' + player);
+
+    console.log('updMoney() начало, moneyBank = ' + moneyBank);
+    console.log('updMoney() начало, moneyPlayer = ' + moneyPlayer);
+    moneyBank = moneyBank + bank;
+    moneyPlayer = moneyPlayer + player;
+    console.log('updMoney() выполнена, moneyBank = ' + moneyBank);
+    console.log('updMoney() выполнена, moneyPlayer = ' + moneyPlayer);
 
     infoValueBank.innerHTML = moneyBank; // вывод значения банка на страницу
     infoValuePlayer.innerHTML = moneyPlayer; // вывод значения счета игрока на страницу
   }
-  updMoney(moneyBank, moneyPlayer); // запуск функции с начальными значениями банка и счета игрока
+  //updMoney(moneyBank, moneyPlayer); // запуск функции с начальными значениями банка и счета игрока
+  updMoney(28500, 25000); // запуск функции с начальными значениями банка и счета игрока
+  console.log('деньги игрока, updMoney(28500, 25000) = ' + moneyPlayer);
 
   /*обновить колоду*/
   let deckСards;
@@ -123,6 +121,12 @@ function kazino() {
       inputHelpText.innerHTML = 'Похоже, вы перебрали алкоголя... Сконцентрируйтесь  -))';
       inputHelpText.classList.add('field-text__help-text--error');
     }
+    else if (moneyBank == 0) {
+      //console.log('проверка ставки, 1-й if, input(rate) = ' + rate);
+      console.log('ВЫ ХОРОШО ИГРАЕТЕ, ЗАХОДИТЕ ЕЩЕ!');
+      modal.style.display = 'block';
+      modalContent.style.display = 'block';
+    }
     else if (rate <= 0) {
       //console.log('проверка ставки, 1-й if, input(rate) = ' + rate);
       inputHelpText.innerHTML = 'Сделайте ставку...';
@@ -133,9 +137,14 @@ function kazino() {
       inputHelpText.innerHTML = 'У Вас нет столько денег!';
       inputHelpText.classList.add('field-text__help-text--error');
     }
+    else if (rate > moneyBank) {
+      //console.log('проверка ставки, 3-й if, input(rate) = ' + rate);
+      inputHelpText.innerHTML = 'В БАНКЕ нет столько денег!';
+      inputHelpText.classList.add('field-text__help-text--error');
+    }
     else if (rate > 0 && rate < 100) {
       //console.log('проверка ставки, 3-й if, input(rate) = ' + rate);
-      inputHelpText.innerHTML = 'С такой ставкой играют в подворотне, а не  нас!';
+      inputHelpText.innerHTML = 'С такой ставкой играют в подворотне, а не у нас!';
       inputHelpText.classList.add('field-text__help-text--error');
     }
     else if (rate >= 100 && rate < 1000) {
@@ -149,7 +158,6 @@ function kazino() {
 
       // и сделать первую выдачу карты
       updScorePlayer();
-
     }
     else {
       //console.log('проверка ставки, else, input(rate) = ' + rate);
@@ -225,7 +233,6 @@ function kazino() {
     console.log('scorePlayer = ' + scorePlayer);
 
     document.querySelector('#totalScorePlayer').innerHTML = `${scorePlayer}`;
-    document.querySelector('#textScorePlayer').style.opacity = '1';
 
     arr.splice(0, 1); // когда играет игрок, удаляем запись о выпавшей карте из массива
 
@@ -244,7 +251,6 @@ function kazino() {
     console.log('scorePC = ' + scorePC);
 
     document.querySelector('#totalScorePC').innerHTML = `${scorePC}`;
-    document.querySelector('#textScorePC').style.opacity = '1';
 
     console.log(arr);
     console.log('=== END функ updScorePC()===');
@@ -260,7 +266,6 @@ function kazino() {
 
   /*функция удаляет сообщение ПЕРЕБОР! на страницу*/
   function overdoRemove(elem) {
-    console.log(document.querySelector(elem));
     document.querySelector(elem).remove();
   }
 
@@ -277,7 +282,7 @@ function kazino() {
       console.log('rate = ' + rate);
       console.log('запускаю updMoney()');
 
-      updMoney(rate, -rate); // снять ставку со счета игрока и добавить ставку в банк
+      updMoney(rate, (-rate)); // снять ставку со счета игрока и добавить ставку в банк
 
       overdo('#textScorePlayer');// добавить на страницу текст "ПЕРЕБОР!"
 
@@ -301,17 +306,16 @@ function kazino() {
     gamePC.style.display = 'block'; // показать блок игры ПК
 
     //ПК должен выдавать себе карты, пока не остановится, или не случится "перебор!"
-    while (scorePC <= 16) {
+    while (scorePC <= 19) {
       updScorePC();
     }
 
-    /*действия, если случился "перебор" у ПК*/
+    /* ПК набрал достаточно карт, выясняем, кто выиграл*/
     if (scorePC >= 22) {
       console.log('ПЕРЕБОР у ПК!');
       console.log('rate = ' + rate);
       console.log('запускаю updMoney()');
-
-      updMoney(-rate, +rate); //  снять ставку из банка и добавить ставку на счет ИГРОКА
+      updMoney((-rate), rate); //  снять ставку из банка и добавить ставку на счет ИГРОКА
 
       /* добавить на страницу текст "ПЕРЕБОР!"*/
       overdo('#textScorePC');
@@ -320,9 +324,7 @@ function kazino() {
       btnContinue2.style.display = 'inline'; // показать кнопку блока кнопок№2, продолжим игру?
       btnEndGame2.style.display = 'inline'; // показать кнопку блока кнопок№2, нет
     }
-
-    /*проверяем, кто выиграл*/
-    if (scorePlayer >= scorePC) {
+    else if (scorePlayer >= scorePC) {
       /*выиграл ИГРОК*/
       console.log(`Вы выиграли ${rate}`);
 
@@ -330,7 +332,7 @@ function kazino() {
       gameResultText.classList.add('game-result__content');
       gameResultText.innerHTML = `Вы выиграли ${rate}`;
       gameResult.append(gameResultText);
-      updMoney(-rate, +rate);
+      updMoney((-rate), rate);
     } else {
       /*выиграл ПК*/
       console.log(`Вы проиграли ${rate}`);
@@ -339,7 +341,7 @@ function kazino() {
       gameResultText.classList.add('game-result__content');
       gameResultText.innerHTML = `Вы проиграли ${rate}`;
       gameResult.append(gameResultText);
-      updMoney(rate, -rate);
+      updMoney(rate, (-rate));
     }
 
     btnContinue2.style.display = 'inline'; //кнопка "продолжить игру"; - блок кнопок #2
@@ -352,7 +354,6 @@ function kazino() {
   /**===OK===*/
   btnContinue.addEventListener('click', () => {
     // console.log('продолжить игру  =================');
-    //document.querySelector('.score').style.opacity = '0';
 
     // удалить выпавшие карты
     const distCard = document.querySelectorAll('.distribution__card');
@@ -378,14 +379,14 @@ function kazino() {
 
   /*блок кнопок №1, ПЕРЕБОР!, грок нажал "нет", не продолжать игру*/
   btnEndGame.addEventListener('click', () => {
-    console.log('ЗАХОДИТЕ ЕЩЕ!');
+    console.log('ВЫ ХОРОШО ИГРАЕТЕ, ЗАХОДИТЕ ЕЩЕ!');
     modal.style.display = 'block';
+    modalContent.style.display = 'block';
   });
 
   /*блок кнопок №2 игрок нажал "продолжить игру-2*/
   btnContinue2.addEventListener('click', () => {
     console.log('продолжить игру  =================');
-    //document.querySelector('.score').style.opacity = '0';
 
     scorePlayer = 0; //обнулить очки игрока
     scorePC = 0; //обнулить очки ПК
@@ -396,15 +397,15 @@ function kazino() {
       item.remove();
     });
 
-    // удалить информационное сообщение
-    document.querySelector('.game-result__content').remove();
-
+    // удалить сообщение ПЕРЕБОР!
+    overdoRemove('.excess');
 
     /* удалить блоки игры ИГРОКА и ПК*/
     gamePlayer.style.display = 'none';
     gamePC.style.display = 'none';
 
-    showCards.style.display = 'none'; // показать блок приём ставки
+    // показать блок приём ставки
+    showCards.style.display = 'none';
 
     // и запустить генератор для modal2
     getRandomModal2();
@@ -412,8 +413,9 @@ function kazino() {
 
   /*блок кнопок №2 игрок нажал "нет", не продолжать игру-2*/
   btnEndGame2.addEventListener('click', () => {
-    console.log('ЗАХОДИТЕ ЕЩЕ!');
+    console.log('ВЫ ХОРОШО ИГРАЕТЕ, ЗАХОДИТЕ ЕЩЕ!');
     modal.style.display = 'block';
+    modalContent.style.display = 'block';
   });
 
 
@@ -431,7 +433,6 @@ function kazino() {
       modal2BtnBribe = document.querySelector('#modal2BtnBribe'), // подствердить сумму
       modal2TextOk = document.querySelector('#modal2TextOk'), // доволен
       modal2TextNo = document.querySelector('#modal2TextNo'), // не доволен
-      modal2BtnСontinue = document.querySelector('#modal2BtnСontinue'), // продолжить
       wrapBribeNo = document.querySelector('#wrapBribeNo'),
       modal2BtnYes2 = document.querySelector('#modal2BtnYes2'), // жалоба в суд - ДА
       modal2BtnNo2 = document.querySelector('#modal2BtnNo2'), //жалоба в суд - НЕТ
@@ -446,10 +447,10 @@ function kazino() {
     modal2BtnBribe.style.display = 'none';
     modal2TextOk.style.display = 'none';
     modal2TextNo.style.display = 'none';
-    modal2BtnСontinue.style.display = 'none';
     wrapBribeNo.style.display = 'none';
     notGuilty.style.display = 'none';
     guilty.style.display = 'none';
+
 
     /**функция случайное число в диапазоне*/
     function getRandomRange(min, max) {
@@ -464,6 +465,7 @@ function kazino() {
       console.log('вина (0/1) = ' + rnd1);
 
       if (rnd1 == 0) {
+        console.log('деньги игрока, суд присяжных, не виновен, начало блока =' + moneyPlayer);
         // не виновен
         const rnd2 = getRandomRange(1000, 3000);
         console.log('компенсация = ' + rnd2);
@@ -471,9 +473,11 @@ function kazino() {
         notGuilty.style.display = 'block';
         moneyPlayer += rnd2; //добавить сумму компенсации к деньгам игрока
         console.log(moneyPlayer);
+        console.log('деньги игрока, суд присяжных, не виновен, конец блока =' + moneyPlayer);
         infoValuePlayer.innerHTML = moneyPlayer; // вывод значения счета игрока на страницу
 
       } else {
+        console.log('деньги игрока, суд присяжных, виновен, начало блока =' + moneyPlayer);
         // виновен
         const rnd3 = getRandomRange(200, 1000),
           rnd4 = getRandomRange(100, 750);
@@ -485,6 +489,7 @@ function kazino() {
         moneyPlayer -= rnd3;//отнять сумму штрафа от денег игрока
         moneyPlayer -= rnd4;//отнять сумму суд.издержек от денег игрока
         console.log(moneyPlayer);
+        console.log('деньги игрока, суд присяжных, не виновен, конец блока =' + moneyPlayer);
         infoValuePlayer.innerHTML = moneyPlayer; // вывод значения счета игрока на страницу
       }
     }
@@ -542,16 +547,18 @@ function kazino() {
       if (reg.test(bribe) || bribe < 500) {
         modal2BtnBribe.style.display = 'none';
         modal2TextNo.style.display = 'block'; //Шериф не доволен
-        modal2BtnСontinue.style.display = 'block';
+        //modal2BtnСontinue[0].style.display = 'block';
       } else {
         modal2BtnBribe.style.display = 'none';
         modal2TextOk.style.display = 'block'; //Шериф не доволен
-        modal2BtnСontinue.style.display = 'block';
+        //modal2BtnСontinue[0].style.display = 'block';
       }
 
       //отнять сумму взятки от денег игрока
+      console.log('деньги игрока, взятка, начало блока =' + moneyPlayer);
       moneyPlayer -= bribe;
       console.log(moneyPlayer);
+      console.log('деньги игрока, взятка, конец блока =' + moneyPlayer);
       infoValuePlayer.innerHTML = moneyPlayer; // вывод значения счета игрока на страницу
     }, { once: true });
 
@@ -567,6 +574,7 @@ function kazino() {
 
     /** === БЛОК подам жалобу в суд*/
     modal2BtnYes2.addEventListener('click', () => {
+      console.log('click on btn - подам жалобу в суд');
       modal2BtnYes2.classList.add('btn--disabled');
       modal2BtnNo2.style.display = 'none';
       juryСourt();
@@ -574,6 +582,7 @@ function kazino() {
 
     /** === БЛОК не-подам жалобу в суд*/
     modal2BtnNo2.addEventListener('click', () => {
+      console.log('click on btn - НЕ подам жалобу в суд');
       modal2BtnYes2.style.display = 'none';
       modal2BtnNo2.classList.add('btn--disabled');
       juryСourt();
