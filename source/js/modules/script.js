@@ -306,7 +306,7 @@ function kazino() {
     gamePC.style.display = 'block'; // показать блок игры ПК
 
     //ПК должен выдавать себе карты, пока не остановится, или не случится "перебор!"
-    while (scorePC <= 17) {
+    while (scorePC <= 19) {
       updScorePC();
     }
 
@@ -358,7 +358,7 @@ function kazino() {
       item.remove();
     });
 
-    gamePlayer.querySelector('#extScorePlayer .excess').remove(); // удалить элемент с текстом ПЕРЕБОР
+    gamePlayer.querySelector('.excess').remove(); // удалить элемент с текстом ПЕРЕБОР
 
     /*убрать/показать кнопки*/
     btnMore.style.display = 'inline'; // еще карту!
@@ -394,9 +394,15 @@ function kazino() {
     });
 
     /* если есть сообщение ПЕРЕБОР, удалить его */
-    if (gamePC.querySelector('#textScorePC .excess')) {
-      gamePC.querySelector('#textScorePC .excess').remove();
+    if (gamePC.querySelector('.excess')) {
+      gamePC.querySelector('.excess').remove();
     }
+
+    /* если есть сообщение ВЫ ПРОИГРАЛИ/ВЫИГРАЛИ удалить его */
+    if (gamePC.querySelector('.game-result__content')) {
+      gamePC.querySelector('.game-result__content').remove();
+    }
+
 
     /* удалить блоки игры ИГРОКА и ПК*/
     gamePlayer.style.display = 'none';
