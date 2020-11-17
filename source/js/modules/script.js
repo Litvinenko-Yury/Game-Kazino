@@ -316,8 +316,8 @@ function kazino() {
       updMoney((-rate), rate); //  снять ставку из банка и добавить ставку на счет ИГРОКА
       overdo('#textScorePC');  // добавить на страницу текст "ПЕРЕБОР!"
       scorePC = 0; //обнулить очки ПК
-      btnContinue2.style.display = 'inline'; // показать кнопку блока кнопок№2, продолжим игру?
-      btnEndGame2.style.display = 'inline'; // показать кнопку блока кнопок№2, нет
+      btnContinue2.style.display = 'inline-block'; // показать кнопку блока кнопок№2, продолжим игру?
+      btnEndGame2.style.display = 'inline-block'; // показать кнопку блока кнопок№2, нет
     }
     else if (scorePlayer >= scorePC) {
       /*выиграл ИГРОК*/
@@ -339,8 +339,8 @@ function kazino() {
       updMoney(rate, (-rate));
     }
 
-    btnContinue2.style.display = 'inline'; //кнопка "продолжить игру"; - блок кнопок #2
-    btnEndGame2.style.display = 'inline'; //кнопка '"нет", не продолжать; - блок кнопок #2
+    btnContinue2.style.display = 'inline-block'; //кнопка "продолжить игру"; - блок кнопок #2
+    btnEndGame2.style.display = 'inline-block'; //кнопка '"нет", не продолжать; - блок кнопок #2
 
   });
   /*===================*/
@@ -359,8 +359,8 @@ function kazino() {
     gamePlayer.querySelector('.excess').remove(); // удалить элемент с текстом ПЕРЕБОР
 
     /*убрать/показать кнопки*/
-    btnMore.style.display = 'inline'; // еще карту!
-    btnEnough.style.display = 'inline'; // хватит...
+    btnMore.style.display = 'inline-block'; // еще карту!
+    btnEnough.style.display = 'inline-block'; // хватит...
     btnContinue.style.display = 'none'; // продолжить игру-1
     btnEndGame.style.display = 'none'; // нет-1
 
@@ -450,27 +450,27 @@ function kazino() {
     /**функция приводит modal2 в первоначальное состояние*/
     function makeModalStartState() {
       modal2.classList.add('modal2--show'),
-        wrapBribeYes.style.display = 'none';
-      modal2TextOk.style.display = 'none';
-      modal2TextNo.style.display = 'none';
-      modal2BtnYes1.style.display = 'inline';
-      modal2BtnYes1.classList.remove('btn--disabled');
-      modal2BtnNo1.style.display = 'inline';
-      modal2BtnNo1.classList.remove('btn--disabled');
-      inputEnterBribe.value = "";
-      modal2BtnBribe.style.display = 'none';
-      wrapBribeNo.style.display = 'none';
-      modal2BtnYes2.style.display = 'inline';
-      modal2BtnYes2.classList.remove('btn--disabled');
-      modal2BtnNo2.style.display = 'inline';
-      modal2BtnNo2.classList.remove('btn--disabled');
-      notGuilty.style.display = 'none';
-      compensation.innerHTML = "";
-      guilty.style.display = 'none';
-      payFine.innerHTML = "";
-      courtCosts.innerHTML = "",
+        wrapBribeYes.style.display = 'none',
+        modal2TextOk.style.display = 'none',
+        modal2TextNo.style.display = 'none',
+        modal2BtnYes1.style.display = 'inline-block',
+        modal2BtnYes1.classList.remove('btn--disabled'),
+        modal2BtnNo1.style.display = 'inline-block',
+        modal2BtnNo1.classList.remove('btn--disabled'),
+        inputEnterBribe.value = "",
+        modal2BtnBribe.style.display = 'none',
+        wrapBribeNo.style.display = 'none',
+        modal2BtnYes2.style.display = 'inline-block',
+        modal2BtnYes2.classList.remove('btn--disabled'),
+        modal2BtnNo2.style.display = 'inline-block',
+        modal2BtnNo2.classList.remove('btn--disabled'),
+        notGuilty.style.display = 'none',
+        compensation.innerHTML = "",
+        guilty.style.display = 'none',
+        payFine.innerHTML = "",
+        courtCosts.innerHTML = "",
 
-        modal2BtnСontinue.forEach((item) => {
+        modal2BtnСontinue.forEach(item => {
           item.style.display = 'none';
         });
     }
