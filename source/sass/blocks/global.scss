@@ -1,34 +1,11 @@
 @font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: local("Open Sans Light"),
-  local("OpenSans-Light"),
-  url("../fonts/opensanslight.woff2") format("woff2"),
-  url("../fonts/opensanslight.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
+  font-family: "Press Start 2P";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Open Sans Regular"),
-  local("OpenSans-Regular"),
-  url("../fonts/opensans.woff2") format("woff2"),
-  url("../fonts/opensans.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Open Sans Bold"),
-  local("OpenSans-Bold"),
-  url("../fonts/opensansbold.woff2") format("woff2"),
-  url("../fonts/opensansbold.woff") format("woff");
+  src: local("Press Start 2P"), local("Press-Start-2P"),
+    url("../fonts/press-start-2p-v9-latin_cyrillic-regular.woff2") format("woff2"),
+    url("../fonts/press-start-2p-v9-latin_cyrillic-regular.woff") format("woff");
 }
 
 html {
@@ -45,20 +22,15 @@ body {
   position: relative;
   min-width: 320px;
   margin: 0;
-  // font-family: $font-family;
-  // font-size: $font-size;
-  // font-weight: normal;
-  // line-height: $line-height;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: normal;
+  line-height: $line-height;
   // color: $text-color;
 }
 
 img {
   max-width: 100%;
-  height: auto;
-}
-
-video {
-  width: 100%;
   height: auto;
 }
 

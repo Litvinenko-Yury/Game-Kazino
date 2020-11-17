@@ -1,7 +1,6 @@
 .btn {
   &--disabled,
   &:disabled {
-    //opacity: $opacity;
     opacity: 0.5;
     cursor: not-allowed;
     //pointer-events: none;
