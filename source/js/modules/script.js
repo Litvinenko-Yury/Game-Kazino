@@ -72,7 +72,6 @@ function kazino() {
     scorePC = 0,
     moneyBank = 0,
     moneyPlayer = 0;
-  console.log('деньги игрока, начало = ' + moneyPlayer);
 
   function updMoney(bank, player) {
     console.log('updMoney() начало, принял bank = ' + bank);
@@ -90,7 +89,6 @@ function kazino() {
   }
   //updMoney(moneyBank, moneyPlayer); // запуск функции с начальными значениями банка и счета игрока
   updMoney(28500, 25000); // запуск функции с начальными значениями банка и счета игрока
-  console.log('деньги игрока, updMoney(28500, 25000) = ' + moneyPlayer);
 
   /*обновить колоду*/
   let deckСards;
@@ -289,8 +287,8 @@ function kazino() {
       /*убрать/показать кнопки*/
       btnMore.style.display = 'none'; // еще карту!
       btnEnough.style.display = 'none'; // хватит...
-      btnContinue.style.display = 'inline'; //продолжить игру-1
-      btnEndGame.style.display = 'inline'; // нет-1
+      btnContinue.style.display = 'inline-block'; //продолжить игру-1
+      btnEndGame.style.display = 'inline-block'; // нет-1
 
       scorePlayer = 0; //обнулить очки игрока
     }
@@ -447,12 +445,11 @@ function kazino() {
       courtCosts = document.querySelector('#courtCosts'),
       guilty = document.querySelector('#guilty'); // блок Виновен
 
+    console.log(modal2BtnСontinue);
+
     /**функция приводит modal2 в первоначальное состояние*/
     function makeModalStartState() {
-      modal2.classList.add('modal2--show');
-      modal2BtnСontinue.forEach((item) => {
-        item.style.display = 'none';
-      }),
+      modal2.classList.add('modal2--show'),
         wrapBribeYes.style.display = 'none';
       modal2TextOk.style.display = 'none';
       modal2TextNo.style.display = 'none';
@@ -471,7 +468,11 @@ function kazino() {
       compensation.innerHTML = "";
       guilty.style.display = 'none';
       payFine.innerHTML = "";
-      courtCosts.innerHTML = "";
+      courtCosts.innerHTML = "",
+
+        modal2BtnСontinue.forEach((item) => {
+          item.style.display = 'none';
+        });
     }
     makeModalStartState();
 
@@ -519,32 +520,10 @@ function kazino() {
 
     /**обработчик каждому элементу коллекции*/
     modal2BtnСontinue.forEach((item) => {
-      item.addEventListener('click', (event) => {
-        let target = event.target;
-        while (target != modal2) {
-          if (target.classList.contains('modal2BtnСontinue')) {
-            //makeModalStartState();
-            modal2.classList.remove('modal2--show');
-            break;
-          } else {
-            target = target.parentNode;
-          }
-        }
+      item.addEventListener('click', () => {
+        modal2.classList.remove('modal2--show');
       });
     });
-
-    // modal2.addEventListener('click', (event) => {
-    //   let target = event.target;
-    //   while (target != modal2) {
-    //     if (target.classList.contains('modal2BtnСontinue')) {
-    //       makeModalStartState();
-    //       modal2.classList.remove('modal2--show');
-    //       break;
-    //     } else {
-    //       target = target.parentNode;
-    //     }
-    //   }
-    // });
 
     /** === БЛОК дам взятку ===*/
     modal2BtnYes1.addEventListener('click', () => {
@@ -565,11 +544,14 @@ function kazino() {
       if (reg.test(bribe) || bribe < 500) {
         modal2BtnBribe.style.display = 'none';
         modal2TextNo.style.display = 'block'; //Шериф не доволен
-        modal2BtnСontinue[0].style.display = 'block';
+        modal2BtnСontinue[0].style.display = 'inline-block';
+        console.log(modal2BtnСontinue[0]);
+
       } else {
         modal2BtnBribe.style.display = 'none';
         modal2TextOk.style.display = 'block'; //Шериф не доволен
-        modal2BtnСontinue[0].style.display = 'block';
+        modal2BtnСontinue[0].style.display = 'inline-block';
+        console.log(modal2BtnСontinue[0]);
       }
 
       //отнять сумму взятки от денег игрока
@@ -590,14 +572,14 @@ function kazino() {
 
     }, { once: true });
 
-
     /** === БЛОК подам жалобу в суд*/
     modal2BtnYes2.addEventListener('click', () => {
       console.log('click on btn - подам жалобу в суд');
       modal2BtnYes2.classList.add('btn--disabled');
       modal2BtnNo2.style.display = 'none';
       juryСourt();
-      modal2BtnСontinue[1].style.display = 'block';
+      modal2BtnСontinue[1].style.display = 'inline-block';
+      console.log(modal2BtnСontinue[1]);
     }, { once: true });
 
     /** === БЛОК не-подам жалобу в суд*/
@@ -606,7 +588,8 @@ function kazino() {
       modal2BtnYes2.style.display = 'none';
       modal2BtnNo2.classList.add('btn--disabled');
       juryСourt();
-      modal2BtnСontinue[2].style.display = 'block';
+      modal2BtnСontinue[2].style.display = 'inline-block';
+      console.log(modal2BtnСontinue[2]);
     }, { once: true });
   }
 }
