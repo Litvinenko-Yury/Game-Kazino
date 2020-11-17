@@ -104,7 +104,6 @@ body {
 .field-text__input {
   /*width: 100%;*/
   width: 300px;
-  //margin-bottom: 0.5em;
   padding: 0.5em 1em;
   border: 1px solid green;
   border-radius: 10px;
@@ -116,7 +115,6 @@ body {
   &:focus {
     outline: none;
     border: 1px solid blue;
-    /*box-shadow: $box-shadow;*/
   }
 
   &::placeholder {
@@ -141,6 +139,5 @@ body {
 
 .score {
   background-color: dimgray;
-  //opacity: 0;
 }
 
