@@ -152,7 +152,7 @@ function kazino() {
       rate = +rate; //преобазование строки в число
       showCards.style.display = 'block'; // показать визуализацию раздачи карт
       gamePlayer.style.display = 'block'; // // показать блок игры
-      wrapBtn.style.display = 'block'; // // показать блок кнопок №1
+      //wrapBtn.style.display = 'block'; // // показать блок кнопок №1
 
       // и сделать первую выдачу карты
       updScorePlayer();
@@ -164,7 +164,7 @@ function kazino() {
       rate = +rate; //преобазование строки в число
       showCards.style.display = 'block'; // показать визуализацию раздачи карт
       gamePlayer.style.display = 'block'; // // показать блок игры
-      wrapBtn.style.display = 'block'; // // показать блок кнопок №1
+      //wrapBtn.style.display = 'block'; // // показать блок кнопок №1
 
       //и сделать первую выдачу карты
       updScorePlayer();

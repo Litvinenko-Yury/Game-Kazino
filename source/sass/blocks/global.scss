@@ -26,12 +26,8 @@ body {
   font-size: $font-size;
   font-weight: normal;
   line-height: $line-height;
-  // color: $text-color;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+  color: $text-color;
+  background-color: $color-main;
 }
 
 h1,

@@ -6,9 +6,10 @@
   left: 0;
   z-index: 100;
   display: none;
-  //display: block;
+  display: block;
   width: 100vw;
   height: 100vh;
+  padding: 2em;
   background-color: black;
   animation: modal__fade 0.2s;
 
@@ -18,6 +19,11 @@
 }
 
 .modal2__text {
-  font-size: 24px;
-  color: #d4d5d6;
+  font-size: $font-size--larger;
+  line-height: $line-height-auto;
+
+  &--inversion {
+    color: $color-main;
+    background-color: $text-color;
+  }
 }

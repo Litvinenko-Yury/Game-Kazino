@@ -1,0 +1,50 @@
+.field-text {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.field-text__name {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.field-text__input-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.field-text__input {
+  /*width: 100%;*/
+  margin-bottom: 1.5rem;
+  width: 300px;
+  padding: 0.5em 1em;
+  color: $color-main;
+  border: 1px solid $color-main;
+
+  &:hover {
+    //border-color: blue;
+  }
+
+  &:focus {
+    outline: none;
+    //border: 1px solid blue;
+  }
+
+  &::placeholder {
+    color: #cccccc;
+  }
+}
+
+.field-text__help-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  font-size: 0.8rem;
+
+  &--error {
+    color: red;
+  }
+}

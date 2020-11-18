@@ -4,7 +4,16 @@
 @import "blocks/global.scss";
 //===
 // импорт остальных блоков
-@import "blocks/css.scss";
 @import "blocks/btn.scss";
+@import "blocks/distribution.scss";
+@import "blocks/field-text.scss";
+@import "blocks/game.scss";
+@import "blocks/info.scss";
 @import "blocks/modal.scss";
 @import "blocks/modal2.scss";
+@import "blocks/score.scss";
+@import "blocks/show-cards.scss";
+@import "blocks/site-wrapper.scss";
+@import "blocks/start.scss";
+@import "blocks/wrap-btn.scss";
+@import "blocks/wrap-rate.scss";

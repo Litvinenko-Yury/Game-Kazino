@@ -1,0 +1,11 @@
+.wrap-btn {
+  outline: 1px dotted darkviolet;
+  display: flex;
+  justify-content: space-between;
+
+  &--modal {
+    justify-content: start;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
