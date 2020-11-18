@@ -235,9 +235,6 @@ function kazino() {
   /**===OK===*/
   btnEnough.addEventListener('click', () => {
     wrapBtn.style.display = 'none'; // скрыть блок кнопок №1
-    // if (document.offsetWidth >= 660) {
-    //   gamePlayer.style.display = 'block';//скрыть блок игры ИГРОКА
-    // }
     gamePC.style.display = 'block'; // показать блок игры ПК
 
     /*ПК должен выдавать себе карты, пока не остановится, или не случится "перебор!"*/
@@ -412,7 +409,7 @@ function kazino() {
         notGuilty.style.display = 'block';
         moneyPlayer += rnd2; //добавить сумму компенсации к деньгам игрока
         infoValuePlayer.innerHTML = moneyPlayer; // вывод значения счета игрока на страницу
-
+        modal2BtnСontinue[1].style.display = 'inline-block';
       } else {
         /* виновен */
         const rnd3 = getRandomRange(200, 1000),
@@ -424,6 +421,7 @@ function kazino() {
         moneyPlayer -= rnd3;//отнять сумму штрафа от денег игрока
         moneyPlayer -= rnd4;//отнять сумму суд.издержек от денег игрока
         infoValuePlayer.innerHTML = moneyPlayer; // вывод значения счета игрока на страницу
+        modal2BtnСontinue[2].style.display = 'inline-block';
       }
     }
 
@@ -476,7 +474,7 @@ function kazino() {
       modal2BtnYes2.classList.add('btn--disabled');
       modal2BtnNo2.style.display = 'none';
       juryСourt();
-      modal2BtnСontinue[1].style.display = 'inline-block';
+      //modal2BtnСontinue[1].style.display = 'inline-block';
     }, { once: true });
 
     /** === БЛОК не-подам жалобу в суд*/
@@ -484,7 +482,7 @@ function kazino() {
       modal2BtnYes2.style.display = 'none';
       modal2BtnNo2.classList.add('btn--disabled');
       juryСourt();
-      modal2BtnСontinue[2].style.display = 'inline-block';
+      //modal2BtnСontinue[2].style.display = 'inline-block';
     }, { once: true });
   }
 }
