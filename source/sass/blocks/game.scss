@@ -1,7 +1,16 @@
 .game {
   display: none;
-  width: 50%;
   height: 60%;
-  padding-top: 1em;
+  padding-top: 1.5rem;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding: 2rem;
+  }
 }
 
+.game-result__content {
+  margin-top: 1rem;
+}

@@ -235,10 +235,13 @@ function kazino() {
   /**===OK===*/
   btnEnough.addEventListener('click', () => {
     wrapBtn.style.display = 'none'; // скрыть блок кнопок №1
+    // if (document.offsetWidth >= 660) {
+    //   gamePlayer.style.display = 'block';//скрыть блок игры ИГРОКА
+    // }
     gamePC.style.display = 'block'; // показать блок игры ПК
 
     /*ПК должен выдавать себе карты, пока не остановится, или не случится "перебор!"*/
-    while (scorePC <= 19) {
+    while (scorePC <= 16) {
       updScorePC();
     }
 
@@ -246,7 +249,7 @@ function kazino() {
     if (scorePC >= 22) {
       const gameResultText = document.createElement('p');
       gameResultText.classList.add('game-result__content');
-      gameResultText.innerHTML = `Вы выиграли ${rate}`;
+      gameResultText.innerHTML = `Вы выиграли ${rate} долларов`;
       gameResult.append(gameResultText);
 
       updMoney((-rate), rate); //  снять ставку из банка и добавить ставку на счет ИГРОКА
@@ -347,7 +350,6 @@ function kazino() {
       inputEnterBribe = document.querySelector('#inputEnterBribe'), // поле ввода суммы
       modal2BtnBribe = document.querySelector('#modal2BtnBribe'), // подствердить сумму
       modal2BtnСontinue = document.querySelectorAll('.btn--continue-modal2'), //коллекция кнопок
-      //modal2BtnСontinue = document.querySelectorAll('#btn--continue'), //коллекция кнопок
       modal2TextOk = document.querySelector('#modal2TextOk'), // доволен
       modal2TextNo = document.querySelector('#modal2TextNo'), // не доволен
       wrapBribeNo = document.querySelector('#wrapBribeNo'),
@@ -358,6 +360,9 @@ function kazino() {
       payFine = document.querySelector('#payFine'),
       courtCosts = document.querySelector('#courtCosts'),
       guilty = document.querySelector('#guilty'); // блок Виновен
+
+    console.log(modal2BtnСontinue);
+
 
     /**функция приводит modal2 в первоначальное состояние*/
     function makeModalStartState() {

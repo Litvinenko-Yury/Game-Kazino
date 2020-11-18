@@ -1,6 +1,6 @@
 .btn {
-  width: 300px;
-  padding: 15px;
+  width: 100%;
+  padding: 10px;
   font-size: inherit;
   color: $text-color;
   background-color: $color-main;
@@ -26,12 +26,12 @@
   }
 
   &--modal {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
   }
 
   &--continue,
   &--end {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 
   &--mod2 {
@@ -39,6 +39,6 @@
   }
 
   &--continue-modal2 {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 }

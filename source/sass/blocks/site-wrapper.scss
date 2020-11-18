@@ -1,7 +1,11 @@
 .site-wrapper {
-  display: flex;
-  flex-wrap: wrap;
   width: 100vw;
-  height: 100vh;
-  padding: 2em;
+  //height: 100vh;
+  padding: 1rem;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
 }
