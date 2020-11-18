@@ -6,6 +6,7 @@
   background-color: $color-main;
   border: 2px solid $text-color;
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     color: $text-color;
@@ -20,7 +21,6 @@
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    pointer-events: none;
     color: gray;
     background-color: #333333;
   }
