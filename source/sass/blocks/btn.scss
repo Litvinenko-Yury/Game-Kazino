@@ -20,23 +20,25 @@
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    //pointer-events: none;
+    pointer-events: none;
     color: gray;
     background-color: #333333;
-    //border-color: red;
   }
 
   &--modal {
     margin-bottom: 1em;
   }
-}
 
-.btn--mod1 {
-  //width: 30%;
-  display: none;
-}
+  &--continue,
+  &--end {
+    margin-top: 1em;
+  }
 
-.btn--mod2 {
-  //width: 30%;
-  display: none;
+  &--mod2 {
+    display: none;
+  }
+
+  &--continue-modal2 {
+    margin-top: 1em;
+  }
 }

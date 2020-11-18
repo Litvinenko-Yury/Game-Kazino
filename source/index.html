@@ -8,11 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="fonts/press-start-2p-v9-latin_cyrillic-regular.woff2" as="font">
   <link rel="stylesheet" href="css/style.min.css">
-
-  <!-- classic-favicon -->
-  <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png"> -->
-
 </head>
 
 <body>
@@ -21,11 +16,13 @@
       <section class='info'>
         <span class='info__text'>Ставлю в банк:</span>
         <span class='info__value' id='infoValueBank'></span>
+        <span class='info__text'>долл</span>
       </section>
 
       <section class='info'>
         <span class='info__text'>На вашем счете:</span>
         <span class='info__value' id='infoValuePlayer'></span>
+        <span class='info__text'>долл</span>
       </section>
 
       <section class="wrap-rate">
@@ -56,8 +53,8 @@
       </div>
 
       <div class="wrap-btn" id='wrapBtn'>
-        <button class='btn btn-mod1' id='btnMore'>Еще карту!</button>
-        <button class='btn btn-mod1' id='btnEnough'>хватит...</button>
+        <button class='btn' id='btnMore'>Еще карту!</button>
+        <button class='btn' id='btnEnough'>хватит...</button>
         <button class='btn btn--mod2' id='btnContinue'>продолжить игру-1</button>
         <button class='btn btn--mod2' id='btnEndGame'>нет-1</button>
       </div>
@@ -110,13 +107,13 @@
 
       <p class="modal2__text" id="modal2TextOk">Шериф доволен.</p>
       <p class="modal2__text" id="modal2TextNo">Шериф остался не доволен, это опасно!</p>
-      <button class='btn  modal2BtnСontinue'>Продолжить</button>
+      <button class='btn  btn--continue-modal2'>Продолжить</button>
     </div>
     <!-- =========================== -->
     <!-- Блок - Взятка шерифу НЕТ -->
     <div id="wrapBribeNo">
       <p class="modal2__text">Подадите жалобу в суд?</p>
-      <div class="wrap-btn-4">
+      <div class="wrap-btn  wrap-btn--modal">
         <button class='btn' id='modal2BtnYes2'>Да</button>
         <button class='btn' id='modal2BtnNo2'>Нет</button>
       </div>
@@ -126,14 +123,14 @@
     <div id="notGuilty">
       <p class="modal2__text">Суд присяжных Вас оправдал.</p>
       <p class="modal2__text">Вам выплачивается компенсация <span class="modal2__text-summ1" id='compensation'></span> долларов</p>
-      <button class='btn  modal2BtnСontinue'>Продолжить</button>
+      <button class='btn  btn--continue-modal2'>Продолжить</button>
     </div>
 
     <div id="guilty">
       <p class="modal2__text">Суд присяжных признал Вас виновным.</p>
       <p class="modal2__text">Штраф полиции = <span class="modal2__text-summ2" id='payFine'></span> долларов</p>
       <p class="modal2__text">Судебные издержки = <span class="modal2__text-summ3" id='courtCosts'></span> долларов</p>
-      <button class='btn  modal2BtnСontinue'>Продолжить</button>
+      <button class='btn  btn--continue-modal2'>Продолжить</button>
     </div>
   </section>
 
