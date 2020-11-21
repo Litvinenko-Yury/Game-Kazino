@@ -29,10 +29,14 @@ body {
   color: $text-color;
   background-color: $color-main;
 
+  @media (min-width: $tablet-width) {
+    font-size: $font-size--large;
+  }
 
-
-
-
+  @media (min-width: $desktop-width) {
+    margin-top: 3rem;
+    font-size: $font-size--large;
+  }
 }
 
 h1,

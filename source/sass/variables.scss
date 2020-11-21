@@ -12,8 +12,8 @@ $font-family: "Press Start 2P", "Arial", sans-serif;
 //$font-size-h6: px;
 
 //$font-size--xl-large: px;
-//$font-size--x-large: px;
-//$font-size--large: px;
+$font-size--x-large: 22px;
+$font-size--large: 16px;
 $font-size--larger: 1.2rem;
 $font-size: 10px;
 //$font-size--smaller: px;
@@ -37,7 +37,7 @@ $text-color: #e1e1e1; // Global text color on <body>;
 //===Media queries breakpoints===
 //=============================
 $tablet-width: 660px;
-$desktop-width: 960px;
+$desktop-width: 768px;
 
 //=============================
 //===Retina queries breakpoints===

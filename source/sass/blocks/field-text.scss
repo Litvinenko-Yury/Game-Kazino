@@ -12,6 +12,15 @@
   position: relative;
   display: block;
   max-width: 250px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 300px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 .field-text__input {
@@ -21,6 +30,10 @@
   line-height: $line-height;
   color: $color-main;
   border: 1px solid $color-main;
+
+  @media (min-width: $desktop-width) {
+    width: 300px;
+  }
 
   &:focus {
     outline: none;

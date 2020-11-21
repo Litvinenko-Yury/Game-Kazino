@@ -4,9 +4,10 @@
   padding-top: 1.5rem;
 
   @media (min-width: $tablet-width) {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
+    //display: flex;
+    //flex-wrap: wrap;
+    //width: 50%;
+    width: 100%;
     padding: 2rem;
   }
 }

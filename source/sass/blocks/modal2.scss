@@ -12,14 +12,31 @@
   background-color: black;
   animation: modal__fade 0.2s;
 
+  @media (min-width: $desktop-width) {
+    padding: 10rem;
+  }
+
   &--show {
     display: block;
+  }
+}
+
+.modal2__wrap {
+
+
+  @media(min-width: $desktop-width) {
+    width: $desktop-width;
+    margin: 0 auto;
   }
 }
 
 .modal2__text {
   font-size: $font-size--larger;
   line-height: $line-height-auto;
+
+  @media (min-width: $desktop-width) {
+    font-size: inherit;
+  }
 
   &--inversion {
     color: $color-main;

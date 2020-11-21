@@ -8,6 +8,10 @@
   cursor: pointer;
   user-select: none;
 
+  @media (min-width: $desktop-width) {
+    width: 300px;
+  }
+
   &:hover {
     color: $text-color;
     background-color: darken($color-main, 5%);
@@ -23,6 +27,12 @@
     cursor: not-allowed;
     color: gray;
     background-color: #333333;
+  }
+
+  &--enterRate {
+    @media (min-width: $desktop-width) {
+      width: 300px;
+    }
   }
 
   &--modal {
