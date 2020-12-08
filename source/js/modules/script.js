@@ -155,7 +155,8 @@ function kazino() {
 
   /*функция открывает modal2 случайным образом*/
   function getRandomModal2() {
-    const rndModal2 = getRandomInt(3);
+    const rndModal2 = getRandomInt(7);
+    console.log(`rndModal2 = ${rndModal2}`);
 
     if (rndModal2 == 0) {
       modal2();
@@ -173,7 +174,7 @@ function kazino() {
     document.querySelector(selector).append(newCard);  // добавление на страницу инфо о выпавшей карте
 
     /*записываю карту в массив*/
-    //масив выпавшх картив нужен для того, что-бы получить при игре ПК плавный вывод карт на страницу
+    //массив выпавшх картив нужен для того, что-бы получить при игре ПК плавный вывод карт на страницу
     let obj = {};
     obj.name = deckСards[rnd].name;
     obj.value = deckСards[rnd].value;
@@ -357,8 +358,6 @@ function kazino() {
       payFine = document.querySelector('#payFine'),
       courtCosts = document.querySelector('#courtCosts'),
       guilty = document.querySelector('#guilty'); // блок Виновен
-
-    console.log(modal2BtnСontinue);
 
 
     /**функция приводит modal2 в первоначальное состояние*/
