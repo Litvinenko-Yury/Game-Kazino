@@ -155,7 +155,7 @@ function kazino() {
 
   /*функция открывает modal2 случайным образом*/
   function getRandomModal2() {
-    const rndModal2 = getRandomInt(1);
+    const rndModal2 = getRandomInt(3);
 
     if (rndModal2 == 0) {
       modal2();

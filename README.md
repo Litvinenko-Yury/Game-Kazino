@@ -3,6 +3,7 @@
 
 Собранный проект на gh-pages:  https://litvinenko-yury.github.io/Game-Kazino/
 
+
 ## Команды
 
 1. Установить зависимости: npm i
